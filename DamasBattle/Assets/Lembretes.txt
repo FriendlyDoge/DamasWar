@@ -1,0 +1,1 @@
+A Order in Layer das peças deve ser maior que a do tabuleiro para que os clicks funcionem na ordem certa.
