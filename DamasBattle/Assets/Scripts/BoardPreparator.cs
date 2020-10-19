@@ -55,7 +55,7 @@ public class BoardPreparator : MonoBehaviour
         }
     }
 
-    private bool IsDarkSquare(int i, int j)
+    public bool IsDarkSquare(int i, int j)
     {
         if (((i % 2 == 0)&&(j % 2 == 0)) || ((i % 2 != 0 )&&(j % 2 != 0)) ) {
             return true;

@@ -57,12 +57,13 @@ public class BoardController : MonoBehaviour
         {
             currentPlayerNumber = 1;
         }
+        Debug.Log(currentPlayerNumber);
     }
     public void PieceWasClicked(Piece piece)
     {
         Debug.Log("Piece was clicked");
-        //if (piece.GetPlayerNumber() == currentPlayerNumber)
-        if(true)
+        if (piece.GetPlayerNumber() == currentPlayerNumber)
+        //if(true)
         {
             piece.AddHighlight();
             currentPiece = piece;
@@ -91,22 +92,29 @@ public class BoardController : MonoBehaviour
         }
         else
         {
-            //if (currentPiece.GetPlayerNumber() == currentPlayerNumber)
-            if(true)
+            if (currentPiece.GetPlayerNumber() == currentPlayerNumber)
+            //if(true)
             {
                 Piece targetPiece = PieceToAttackFromPosition(currentPiece, xWorldPos, yWorldPos);
-                if (targetPiece)
+                if (targetPiece && boardPreparator.IsDarkSquare(xWorldPos, yWorldPos))
                 {
                     Debug.Log("Can attack!");
                     ExecuteAttack(currentPiece, targetPiece);
                     ExecuteMove(currentPiece.GetXPosition(), currentPiece.GetYPosition(), xWorldPos, yWorldPos);
                     attacked = true;
+                    EndCurrentPlayerTurn();
                 }
                 else if (CanMoveToSpace(currentPiece, xWorldPos, yWorldPos))
                 {
                     Debug.Log(xWorldPos.ToString() + " AND " + yWorldPos.ToString());
                     ExecuteMove(currentPiece.GetXPosition(), currentPiece.GetYPosition(), xWorldPos, yWorldPos);
+                    EndCurrentPlayerTurn();
+
                 }
+            }
+            else
+            {
+                Debug.Log("That's not your turn funny boy...");
             }
         }
 
@@ -122,24 +130,28 @@ public class BoardController : MonoBehaviour
     // Check if you can make a queen etc
     private void CheckBoardState(bool attacked)
     {
+        //ifCanAttackAgain();
         RemoveCurrentPieceSelection();
+        
     }
 
     private void RemoveCurrentPieceSelection()
     {
         Debug.Log("Removing Current Piece Selection");
-        currentPiece.RemoveHighlight();
+        //currentPiece.RemoveHighlight();
         currentPiece = null;
     }
 
     private void ExecuteMove(int xPosOld, int yPosOld, int xPosNew, int yPosNew)
     {
-        Debug.Log("Execution of move action from " + xPosOld.ToString() + "," + xPosNew.ToString() + " ");
-        Debug.Log("To " + xPosNew.ToString() + "," + yPosNew.ToString());
+        
+        
+        Debug.Log("ExecuteMove: Execution of move action from " + xPosOld.ToString() + "," + xPosNew.ToString() + " ");
+        Debug.Log("ExecuteMove: To " + xPosNew.ToString() + "," + yPosNew.ToString());
         boardState[xPosOld][yPosOld] = null;
         boardState[xPosNew][yPosNew] = currentPiece;
-        currentPiece.MoveTo(xPosNew, yPosNew);
 
+        currentPiece.MoveTo(xPosNew, yPosNew);
         currentPiece = null;
 
     }
@@ -148,13 +160,19 @@ public class BoardController : MonoBehaviour
     {
         int posXOld = p.GetXPosition();
         int posYOld = p.GetYPosition();
-        Debug.Log("Can move to space?");
+        Debug.Log("CanMoveToSpace: Can move to space?");
+
+        if( !boardPreparator.IsDarkSquare(posXNew, posYNew))
+        {
+            Debug.Log("CanMoveToSpace: Cannot move to a white square!");
+            return false;
+        }
         // If is moving horizontally or vertically, it is just not possible sir
         if (posXOld == posXNew || posYOld == posYNew)
         {
-            if (!p.CanMoveInLine())
+            if (!p.CanMoveInLine() )
             {
-                Debug.Log("Cannot move in line!");
+                Debug.Log("CanMoveToSpace: Cannot move in line!");
                 return false;
             }
         }
@@ -163,7 +181,7 @@ public class BoardController : MonoBehaviour
         if (p.IsThisBackwards(posYNew)) { // Can't walk back up
             if (!p.CanMoveBackwards())
             {
-                Debug.Log("Cannot move backwards!");
+                Debug.Log("CanMoveToSpace: Cannot move backwards!");
                 return false;
             }
         }
@@ -186,26 +204,26 @@ public class BoardController : MonoBehaviour
 
     private void ExecuteAttack(Piece attacker, Piece targetPiece)
     {
-        Debug.Log("Executing attack");
+        Debug.Log("ExecuteAttack: Executing attack");
         targetPiece.Die();
     }
 
     Piece PieceToAttackFromPosition(Piece attackingPiece, int xEndPos, int yEndPos)
     {
         string attackingPieceTag = attackingPiece.tag;
-        Debug.Log("Can piece of tag " + attackingPieceTag + " attack position?");
-        if (!PieceAtPosExists(xEndPos, yEndPos))
+        Debug.Log("PieceToAttackFromPosition: Can piece of tag " + attackingPieceTag + " attack position?");
+        if (!PieceAtPosExists(xEndPos, yEndPos) && boardPreparator.IsDarkSquare(xEndPos, yEndPos))
         {
             Vector2Int attackingPosition = GetAttackingPosition(attackingPiece.GetXPosition(), attackingPiece.GetYPosition(), xEndPos, yEndPos);
             
             if (PieceAtPosExists(attackingPosition.x, attackingPosition.y) && PosHasPieceOfDifferentTag(attackingPosition.x, attackingPosition.y, attackingPieceTag))
             {
-                Debug.Log("There is a piece to attack!");
+                Debug.Log("PieceToAttackFromPosition: here is a piece to attack!");
                 return boardState[attackingPosition.x][attackingPosition.y];
             }
             else
             {
-                Debug.Log("There is NO piece to attack!");
+                Debug.Log("PieceToAttackFromPosition: There is NO piece to attack!");
                 return null;
             }
         } else
@@ -215,7 +233,7 @@ public class BoardController : MonoBehaviour
     }
     bool PieceAtPosExists(int xPos, int yPos)
     {
-        Debug.Log("Is there a piece at position X:" + xPos.ToString() + " Y:" +yPos.ToString() + " ?");
+        Debug.Log("PieceAtPosExists: Is there a piece at position X:" + xPos.ToString() + " Y:" +yPos.ToString() + " ?");
         Piece pieceAtPos = boardState[xPos][yPos];
         if (pieceAtPos)
         {
@@ -226,7 +244,7 @@ public class BoardController : MonoBehaviour
 
     bool PosHasPieceOfDifferentTag(int xPos, int yPos, string tagName)
     {
-        Debug.Log("Position piece with a tag different of the tag: " + tagName + " ?");
+        Debug.Log("PosHasPieceOfDifferentTag: Position piece with a tag different of the tag: " + tagName + " ?");
         Piece pieceAtPos = boardState[Mathf.FloorToInt(xPos)][Mathf.FloorToInt(yPos)];
         if(pieceAtPos && !pieceAtPos.CompareTag(tagName) || !pieceAtPos)
         {
@@ -239,7 +257,7 @@ public class BoardController : MonoBehaviour
 
     Vector2Int GetAttackingPosition(int xStartPos, int yStartPos, int xEndPos, int yEndPos)
     {
-        Debug.Log("Get attacking position");
+        Debug.Log("GetAttackingPosition: Get attacking position");
         int xAttackPosition = (xEndPos + xStartPos) / 2;
         int yAttackPosition = (yEndPos + yStartPos) / 2;
         Vector2Int attackingDirection = new Vector2Int(xAttackPosition, yAttackPosition);
