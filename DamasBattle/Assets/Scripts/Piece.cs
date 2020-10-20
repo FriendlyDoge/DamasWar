@@ -15,11 +15,17 @@ public class Piece : MonoBehaviour
     [SerializeField] bool backwardsAllowed = false;
     [SerializeField] bool lineMoveAllowed = false;
 
-    [Range(-1,1)][SerializeField] int backwardsDirection = 1;
+    [Range(-1, 1)] [SerializeField] int backwardsDirection = 1;
 
-    [Range(1f, 3f)][SerializeField] float deathAnimationDuration = 1f; 
+    [Range(1f, 3f)] [SerializeField] float deathAnimationDuration = 1f;
 
     BoardController boardController = null;
+
+    // Data for highlighting
+    [SerializeField] GameObject highlightingPrefab = null;
+    GameObject highlightingObject = null;
+
+
     void Start()
     {
         boardController = FindObjectOfType<BoardController>();
@@ -32,7 +38,6 @@ public class Piece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void Die()
@@ -51,12 +56,15 @@ public class Piece : MonoBehaviour
 
     public void RemoveHighlight()
     {
-
+        if (highlightingObject)
+        {
+            DestroyImmediate(highlightingObject);
+        }
     }
 
     public void AddHighlight()
     {
-
+        highlightingObject = Instantiate(highlightingPrefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
     }
 
     public int GetXPosition()
@@ -100,15 +108,15 @@ public class Piece : MonoBehaviour
 
     }
 
-    public bool IsThisBackwards(int yPosNew) 
+    public bool IsThisBackwards(int yPosNew)
     {
         int currY = GetYPosition();
 
-        if( Mathf.Sign(yPosNew - currY) == backwardsDirection) // Direction that is moving
+        if (Mathf.Sign(yPosNew - currY) == backwardsDirection) // Direction that is moving
         {
             return true;
         }
-        else 
+        else
         {
             return false;
         }
@@ -118,7 +126,7 @@ public class Piece : MonoBehaviour
     {
         int currY = GetYPosition();
 
-        if( Mathf.Abs(posYNew - currY) <= maxMovementSquares)
+        if (Mathf.Abs(posYNew - currY) <= maxMovementSquares)
         {
             return true;
         } else

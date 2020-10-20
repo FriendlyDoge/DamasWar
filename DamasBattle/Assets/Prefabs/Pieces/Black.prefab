@@ -72,6 +72,7 @@ MonoBehaviour:
   lineMoveAllowed: 0
   backwardsDirection: 1
   deathAnimationDuration: 1
+  highlightingPrefab: {fileID: 4928078575266371309, guid: 07023cb544b3e3f44a4684267e80c6e4, type: 3}
 --- !u!61 &-7910906892495735526
 BoxCollider2D:
   m_ObjectHideFlags: 0

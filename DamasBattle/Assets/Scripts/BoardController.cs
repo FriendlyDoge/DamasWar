@@ -10,7 +10,6 @@ using UnityEngine;
 public class BoardController : MonoBehaviour
 {
     
-
     BoardPreparator boardPreparator = null;
 
     Piece[][] boardState = null;
@@ -45,7 +44,7 @@ public class BoardController : MonoBehaviour
     void EndCurrentPlayerTurn()
     {
         Debug.Log("Ending current player turn");
-        currentPiece = null;
+        RemoveCurrentPieceSelection();
         UpdateCurrentPlayer();
     }
 
@@ -61,9 +60,12 @@ public class BoardController : MonoBehaviour
     }
     public void PieceWasClicked(Piece piece)
     {
+        if(currentPiece != null)
+        {
+            currentPiece.RemoveHighlight();
+        }
         Debug.Log("Piece was clicked");
         if (piece.GetPlayerNumber() == currentPlayerNumber)
-        //if(true)
         {
             piece.AddHighlight();
             currentPiece = piece;
@@ -137,9 +139,12 @@ public class BoardController : MonoBehaviour
 
     private void RemoveCurrentPieceSelection()
     {
+        if (!currentPiece)
+        {
+            Debug.LogError("RemoveCurrentPieceSelection -> No piece selected.");
+        }
         Debug.Log("Removing Current Piece Selection");
-        //currentPiece.RemoveHighlight();
-        currentPiece = null;
+        currentPiece.RemoveHighlight();
     }
 
     private void ExecuteMove(int xPosOld, int yPosOld, int xPosNew, int yPosNew)
@@ -152,7 +157,7 @@ public class BoardController : MonoBehaviour
         boardState[xPosNew][yPosNew] = currentPiece;
 
         currentPiece.MoveTo(xPosNew, yPosNew);
-        currentPiece = null;
+        RemoveCurrentPieceSelection();
 
     }
 
