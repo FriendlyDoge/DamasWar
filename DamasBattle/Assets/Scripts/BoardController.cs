@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using UnityEditor.UIElements;
 using UnityEngine;
+using TMPro;
 
 public class BoardController : MonoBehaviour
 {
@@ -19,6 +20,15 @@ public class BoardController : MonoBehaviour
     int playersNumbers = 2;
 
     int currentPlayerNumber = 1;
+
+    [SerializeField]
+    string playerName = "Jogador";
+
+    [SerializeField]
+    string computerName = "Computador";
+
+    [SerializeField]
+    TMPro.TextMeshProUGUI currentPlayerText = null;
 
     void Start()
     {
@@ -39,6 +49,8 @@ public class BoardController : MonoBehaviour
             }
         }
 
+        currentPlayerText.SetText(playerName);
+
     }
 
     void EndCurrentPlayerTurn()
@@ -55,8 +67,12 @@ public class BoardController : MonoBehaviour
         if(currentPlayerNumber > playersNumbers)
         {
             currentPlayerNumber = 1;
+            currentPlayerText.SetText(playerName);
+        } else
+        {
+            currentPlayerText.SetText(computerName);
         }
-        Debug.Log(currentPlayerNumber);
+
     }
     public void PieceWasClicked(Piece piece)
     {
@@ -272,5 +288,21 @@ public class BoardController : MonoBehaviour
     bool IsWhitePiece(Piece p)
     {
         return p.CompareTag("P1 Piece");
+    }
+
+    public void RestartGame()
+    {
+        boardPreparator.PrepareBoard();
+        if (currentPlayerNumber != 1)
+        {
+            UpdateCurrentPlayer();
+        }
+
+        boardState = boardPreparator.PrepareBoard();
+        if (currentPiece)
+        {
+            currentPiece.RemoveHighlight();
+            currentPiece = null;
+        }
     }
 }
