@@ -78,6 +78,7 @@ public class BoardController : MonoBehaviour
     {
         if(currentPiece != null)
         {
+            currentPiece.AddHighlightPossibleMovements();
             currentPiece.RemoveHighlight();
         }
         Debug.Log("Piece was clicked");
@@ -177,7 +178,7 @@ public class BoardController : MonoBehaviour
 
     }
 
-    private bool CanMoveToSpace(Piece p, int posXNew, int posYNew)
+    public bool CanMoveToSpace(Piece p, int posXNew, int posYNew)
     {
         int posXOld = p.GetXPosition();
         int posYOld = p.GetYPosition();

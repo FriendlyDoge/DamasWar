@@ -25,6 +25,11 @@ public class Piece : MonoBehaviour
     [SerializeField] GameObject highlightingPrefab = null;
     GameObject highlightingObject = null;
 
+    [SerializeField] GameObject supDir = null;
+    [SerializeField] GameObject supEsq = null;
+    [SerializeField] GameObject infDir = null;
+    [SerializeField] GameObject infEsq = null;
+    GameObject positionHighlightObject = null;
 
     void Start()
     {
@@ -65,6 +70,70 @@ public class Piece : MonoBehaviour
     public void AddHighlight()
     {
         highlightingObject = Instantiate(highlightingPrefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+    }
+
+    public void AddHighlightPossibleMovements()
+    {
+        if(GetPlayerNumber() == 1)
+        {
+            bool diagSupDir = true;
+            bool diagSupEsq = true;
+            bool diagInfDir = true;
+            bool diagInfEsq = true;
+            if(GetXPosition() == 0)
+            {
+                diagSupEsq = false;
+                diagInfEsq = false;
+                //if (!CanMoveBackwards())
+                //{
+                 //   diagInfDir = false;
+                //}
+            }
+            if(GetYPosition() == 0)
+            {
+                diagInfDir = false;
+                diagInfEsq = false;
+            }
+            if(GetXPosition() == 9)
+            {
+                diagSupDir = false;
+                diagInfDir = false;
+               // if (!CanMoveBackwards())
+                //{
+                 //   diagInfEsq = false;
+                //}
+            }
+            if(GetYPosition() == 9)
+            {
+                diagSupEsq = false;
+                diagSupDir = false;
+            }
+            if (boardController.CanMoveToSpace(this, GetXPosition() - 1, GetYPosition() - 1))
+            {
+                //infEsq.GetComponent<Renderer>().enabled = true;
+                this.transform.Find("infesq").gameObject.SetActive(true);
+                Debug.Log("pode ir pra inferior esquerda");
+            }
+            if (boardController.CanMoveToSpace(this, GetXPosition() + 1, GetYPosition() - 1))
+            {
+                //infDir.GetComponent<Renderer>().enabled = true;
+                this.transform.Find("infdir").gameObject.SetActive(true);
+                Debug.Log("pode ir pra inferior direita");
+            }
+            if ( boardController.CanMoveToSpace(this, GetXPosition() + 1, GetYPosition()+ 1))
+            {
+                //supDir.GetComponent<Renderer>().enabled = true;
+                this.transform.Find("supdir").gameObject.SetActive(true);
+                Debug.Log("pode ir pra superior direita");
+            }
+            if (boardController.CanMoveToSpace(this, GetXPosition() - 1, GetYPosition() + 1))
+            {
+                //supEsq.GetComponent<Renderer>().enabled = true;
+                this.transform.Find("supesq").gameObject.SetActive(true);
+                Debug.Log("pode ir pra superior esquerda");
+            }
+        }
+        
     }
 
     public int GetXPosition()
