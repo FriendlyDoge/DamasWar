@@ -25,11 +25,13 @@ public class Piece : MonoBehaviour
     [SerializeField] GameObject highlightingPrefab = null;
     GameObject highlightingObject = null;
 
-    [SerializeField] GameObject supDir = null;
+    /*[SerializeField] GameObject supDir = null;
     [SerializeField] GameObject supEsq = null;
     [SerializeField] GameObject infDir = null;
     [SerializeField] GameObject infEsq = null;
-    GameObject positionHighlightObject = null;
+    GameObject positionHighlightObject = null;*/
+
+    [SerializeField] GameObject dama = null;
 
     void Start()
     {
@@ -72,6 +74,25 @@ public class Piece : MonoBehaviour
         highlightingObject = Instantiate(highlightingPrefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
     }
 
+    public void makeDama()
+    {
+        bool dama = false;
+        Debug.Log("GetPlayerNumber() " + GetPlayerNumber());
+        Debug.Log("GetYPosition()" + GetYPosition());
+        if(GetPlayerNumber() == 1){
+            if(GetYPosition() == 9) {
+                dama = true;
+                Debug.Log("player 1 and Yposition = 0");
+            }
+        }else{
+            if(GetYPosition() == 0){
+             dama = true;
+             Debug.Log("player 0 ou 2 and Yposition = 9") ;
+            }
+        }
+        if(dama) this.transform.Find("dama").gameObject.SetActive(true);
+        //return dama;
+    }
     public void AddHighlightPossibleMovements()
     {
         if(GetPlayerNumber() == 1)

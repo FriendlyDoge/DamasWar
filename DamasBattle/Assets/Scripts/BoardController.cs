@@ -78,7 +78,7 @@ public class BoardController : MonoBehaviour
     {
         if(currentPiece != null)
         {
-            currentPiece.AddHighlightPossibleMovements();
+            //currentPiece.AddHighlightPossibleMovements();
             currentPiece.RemoveHighlight();
         }
         Debug.Log("Piece was clicked");
@@ -174,6 +174,7 @@ public class BoardController : MonoBehaviour
         boardState[xPosNew][yPosNew] = currentPiece;
 
         currentPiece.MoveTo(xPosNew, yPosNew);
+        currentPiece.makeDama();
         RemoveCurrentPieceSelection();
 
     }
