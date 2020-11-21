@@ -11,6 +11,11 @@ public class BoardPreparator : MonoBehaviour
     [SerializeField]
     bool doClearBoard = true;
 
+    private void Start()
+    {
+
+    }
+
     public Piece[][] PrepareBoard()
     {
         if(doClearBoard)
@@ -62,4 +67,12 @@ public class BoardPreparator : MonoBehaviour
         }
         return false;
     }
+
+#if UNITY_EDITOR
+    public void setTestData(Piece p)
+    {
+        whitePiecePrefab = p;
+        blackPiecePrefab = p;
+    }
+#endif
 }
