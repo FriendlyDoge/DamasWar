@@ -26,7 +26,7 @@ public class GameBoard : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(mousePos);
 
-        Debug.Log(mousePosWorld);
+       // Debug.Log(mousePosWorld);
         boardController.EmptySpaceClicked(Mathf.FloorToInt(mousePosWorld.x), Mathf.FloorToInt(mousePosWorld.y));
     }
 }

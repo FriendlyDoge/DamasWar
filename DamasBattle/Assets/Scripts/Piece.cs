@@ -78,8 +78,7 @@ public class Piece : MonoBehaviour
     {
 
         bool dama = false;
-        Debug.Log("GetPlayerNumber() " + GetPlayerNumber());
-        Debug.Log("GetYPosition()" + GetYPosition());
+
         if(GetPlayerNumber() == 1){
             if(GetYPosition() == 9) {
                 dama = true;
@@ -100,37 +99,39 @@ public class Piece : MonoBehaviour
     public void AddHighlightPossibleMovements()
     {   
         int playerNumber = GetPlayerNumber();
+        bool dama = isThisDama();
 
             bool canDown = GetYPosition() - 1 > 0;
             bool canUp = GetYPosition() + 1 < 10;
             bool canEsq = GetXPosition()  > 0;
             bool canDir = GetXPosition() +1 < 10;
-            if (playerNumber != 1 && canDown && canEsq && 
-                boardController.CanMoveToSpace(this, GetXPosition() - 1, GetYPosition() - 1))
-            {
-                //infEsq.GetComponent<Renderer>().enabled = true;
-                this.transform.Find("infesq").gameObject.SetActive(true);
-                Debug.Log("pode ir pra inferior esquerda");
+            if(!dama){
+                if (playerNumber != 1 && canDown && canEsq && 
+                    boardController.CanMoveToSpace(this, GetXPosition() - 1, GetYPosition() - 1))
+                {
+                    //infEsq.GetComponent<Renderer>().enabled = true;
+                    this.transform.Find("infesq").gameObject.SetActive(true);
+                    //Debug.Log("pode ir pra inferior esquerda");
+                }
+                if (playerNumber != 1 &&canDir && canDown && boardController.CanMoveToSpace(this, GetXPosition() + 1, GetYPosition() - 1))
+                {
+                    //infDir.GetComponent<Renderer>().enabled = true;
+                    this.transform.Find("infdir").gameObject.SetActive(true);
+                    //Debug.Log("pode ir pra inferior direita");
+                }
+                if ( playerNumber == 1 && canDir && canUp && boardController.CanMoveToSpace(this, GetXPosition() + 1, GetYPosition()+ 1))
+                {
+                    //supDir.GetComponent<Renderer>().enabled = true;
+                    this.transform.Find("supdir").gameObject.SetActive(true);
+ //                   Debug.Log("pode ir pra superior direita");
+                }
+                if (playerNumber == 1 && canEsq && canUp && boardController.CanMoveToSpace(this, GetXPosition() - 1, GetYPosition() + 1))
+                {
+                    //supEsq.GetComponent<Renderer>().enabled = true;
+                    this.transform.Find("supesq").gameObject.SetActive(true);
+//                    Debug.Log("pode ir pra superior esquerda");
+                }
             }
-            if (playerNumber != 1 &&canDir && canDown && boardController.CanMoveToSpace(this, GetXPosition() + 1, GetYPosition() - 1))
-            {
-                //infDir.GetComponent<Renderer>().enabled = true;
-                this.transform.Find("infdir").gameObject.SetActive(true);
-                Debug.Log("pode ir pra inferior direita");
-            }
-            if ( playerNumber == 1 && canDir && canUp && boardController.CanMoveToSpace(this, GetXPosition() + 1, GetYPosition()+ 1))
-            {
-                //supDir.GetComponent<Renderer>().enabled = true;
-                this.transform.Find("supdir").gameObject.SetActive(true);
-                Debug.Log("pode ir pra superior direita");
-            }
-            if (playerNumber == 1 && canEsq && canUp && boardController.CanMoveToSpace(this, GetXPosition() - 1, GetYPosition() + 1))
-            {
-                //supEsq.GetComponent<Renderer>().enabled = true;
-                this.transform.Find("supesq").gameObject.SetActive(true);
-                Debug.Log("pode ir pra superior esquerda");
-            }
-        
     }
     public void RemoveHighlightPossibleMovements(){
         this.transform.Find("infesq").gameObject.SetActive(false);
