@@ -76,6 +76,8 @@ public class BoardController : MonoBehaviour
     }
     public void PieceWasClicked(Piece piece)
     {
+        print("CountWhite: "+ countWhitePieces());
+        print("CountBlack: "+countBlackPieces());
         if(currentPiece != null)
         {
              
@@ -104,7 +106,7 @@ public class BoardController : MonoBehaviour
 
     public void EmptySpaceClicked(int xWorldPos, int yWorldPos)
     {
-        
+
         bool attackAgain = false;
         Debug.Log("Empty Space Clicked");
         if (currentPiece == null)
@@ -389,6 +391,42 @@ public class BoardController : MonoBehaviour
         return p.CompareTag("P1 Piece");
     }
 
+    public int countBlackPieces(){
+        int x = 0;
+        bool isBlack = false;
+        Piece p;
+         for( int i = 0 ; i<10; i++){
+            for( int j= 0; j<10; j++){
+                if(((i+j)%2) == 0){
+                    p = boardState[i][j];
+                    if(p != null  ) isBlack = !IsWhitePiece(p);
+
+                    if(isBlack)
+                        x++;
+                        isBlack = false;
+                }
+            }
+        }
+        return x;
+    }
+    public int countWhitePieces(){
+        int x = 0;
+        bool isWhite = false;
+        Piece p;
+         for( int i = 0 ; i<10; i++){
+            for( int j= 0; j<10; j++){
+                if(((i+j)%2) == 0){
+                    p = boardState[i][j];
+                    if(p != null  ) isWhite = IsWhitePiece(p);
+
+                    if(isWhite)
+                        x++;
+                        isWhite = false;
+                }
+            }
+        }
+        return x;
+    }
     public void RestartGame()
     {
         boardPreparator.PrepareBoard();
