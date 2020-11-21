@@ -78,12 +78,14 @@ public class BoardController : MonoBehaviour
     {
         if(currentPiece != null)
         {
-            //currentPiece.AddHighlightPossibleMovements();
+             
+            currentPiece.RemoveHighlightPossibleMovements();
             currentPiece.RemoveHighlight();
         }
         Debug.Log("Piece was clicked");
         if (piece.GetPlayerNumber() == currentPlayerNumber)
         {
+            piece.AddHighlightPossibleMovements();
             piece.AddHighlight();
             currentPiece = piece;
         }
@@ -181,6 +183,7 @@ public class BoardController : MonoBehaviour
         }
         Debug.Log("Removing Current Piece Selection");
         currentPiece.RemoveHighlight();
+        currentPiece.RemoveHighlightPossibleMovements();
     }
 
     private void ExecuteMove(int xPosOld, int yPosOld, int xPosNew, int yPosNew)
@@ -370,6 +373,7 @@ public class BoardController : MonoBehaviour
         if (currentPiece)
         {
             currentPiece.RemoveHighlight();
+            currentPiece.RemoveHighlightPossibleMovements();
             currentPiece = null;
         }
     }

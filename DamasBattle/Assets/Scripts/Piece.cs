@@ -25,11 +25,11 @@ public class Piece : MonoBehaviour
     [SerializeField] GameObject highlightingPrefab = null;
     GameObject highlightingObject = null;
 
-    /*[SerializeField] GameObject supDir = null;
+    [SerializeField] GameObject supDir = null;
     [SerializeField] GameObject supEsq = null;
     [SerializeField] GameObject infDir = null;
     [SerializeField] GameObject infEsq = null;
-    GameObject positionHighlightObject = null;*/
+    GameObject positionHighlightObject = null;
 
     [SerializeField] GameObject isDama = null;
 
@@ -98,67 +98,45 @@ public class Piece : MonoBehaviour
         //return dama;
     }
     public void AddHighlightPossibleMovements()
-    {
-        if(GetPlayerNumber() == 1)
-        {
-            bool diagSupDir = true;
-            bool diagSupEsq = true;
-            bool diagInfDir = true;
-            bool diagInfEsq = true;
-            if(GetXPosition() == 0)
-            {
-                diagSupEsq = false;
-                diagInfEsq = false;
-                //if (!CanMoveBackwards())
-                //{
-                 //   diagInfDir = false;
-                //}
-            }
-            if(GetYPosition() == 0)
-            {
-                diagInfDir = false;
-                diagInfEsq = false;
-            }
-            if(GetXPosition() == 9)
-            {
-                diagSupDir = false;
-                diagInfDir = false;
-               // if (!CanMoveBackwards())
-                //{
-                 //   diagInfEsq = false;
-                //}
-            }
-            if(GetYPosition() == 9)
-            {
-                diagSupEsq = false;
-                diagSupDir = false;
-            }
-            if (boardController.CanMoveToSpace(this, GetXPosition() - 1, GetYPosition() - 1))
+    {   
+        int playerNumber = GetPlayerNumber();
+
+            bool canDown = GetYPosition() - 1 > 0;
+            bool canUp = GetYPosition() + 1 < 10;
+            bool canEsq = GetXPosition()  > 0;
+            bool canDir = GetXPosition() +1 < 10;
+            if (playerNumber != 1 && canDown && canEsq && 
+                boardController.CanMoveToSpace(this, GetXPosition() - 1, GetYPosition() - 1))
             {
                 //infEsq.GetComponent<Renderer>().enabled = true;
                 this.transform.Find("infesq").gameObject.SetActive(true);
                 Debug.Log("pode ir pra inferior esquerda");
             }
-            if (boardController.CanMoveToSpace(this, GetXPosition() + 1, GetYPosition() - 1))
+            if (playerNumber != 1 &&canDir && canDown && boardController.CanMoveToSpace(this, GetXPosition() + 1, GetYPosition() - 1))
             {
                 //infDir.GetComponent<Renderer>().enabled = true;
                 this.transform.Find("infdir").gameObject.SetActive(true);
                 Debug.Log("pode ir pra inferior direita");
             }
-            if ( boardController.CanMoveToSpace(this, GetXPosition() + 1, GetYPosition()+ 1))
+            if ( playerNumber == 1 && canDir && canUp && boardController.CanMoveToSpace(this, GetXPosition() + 1, GetYPosition()+ 1))
             {
                 //supDir.GetComponent<Renderer>().enabled = true;
                 this.transform.Find("supdir").gameObject.SetActive(true);
                 Debug.Log("pode ir pra superior direita");
             }
-            if (boardController.CanMoveToSpace(this, GetXPosition() - 1, GetYPosition() + 1))
+            if (playerNumber == 1 && canEsq && canUp && boardController.CanMoveToSpace(this, GetXPosition() - 1, GetYPosition() + 1))
             {
                 //supEsq.GetComponent<Renderer>().enabled = true;
                 this.transform.Find("supesq").gameObject.SetActive(true);
                 Debug.Log("pode ir pra superior esquerda");
             }
-        }
         
+    }
+    public void RemoveHighlightPossibleMovements(){
+        this.transform.Find("infesq").gameObject.SetActive(false);
+        this.transform.Find("infdir").gameObject.SetActive(false);
+        this.transform.Find("supdir").gameObject.SetActive(false);
+        this.transform.Find("supesq").gameObject.SetActive(false);
     }
 
     public int GetXPosition()
