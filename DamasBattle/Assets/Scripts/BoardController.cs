@@ -220,8 +220,9 @@ public class BoardController : MonoBehaviour
         }
 
         // Can walk Backwards?
-        if (p.IsThisBackwards(posYNew)) { // Can't walk back up
-            if (!p.CanMoveBackwards())
+        print("!p.isThisDama(): "+ !p.isThisDama());
+        if (  p.IsThisBackwards(posYNew)) { // Can't walk back up
+            if (!p.isThisDama() &&!p.CanMoveBackwards())
             {
                 Debug.Log("CanMoveToSpace: Cannot move backwards!");
                 return false;
@@ -251,15 +252,60 @@ public class BoardController : MonoBehaviour
         targetPiece.Die();
     }
 
+    Vector2Int ExistsAtackedPiece(Piece attackingPiece, int xEndPos, int yEndPos)   
+    {
+        Piece p;
+        //contar quantas peças há na linha
+        int x =attackingPiece.GetXPosition(), y = attackingPiece.GetYPosition();
+
+        int casasAndadasX = -x +  xEndPos;
+        int dirX = 0;
+        if(casasAndadasX > 0) dirX = 1;
+        else dirX = -1;
+        casasAndadasX = Math.Abs(casasAndadasX);
+
+        int casasAndadasY = -y +  yEndPos;
+        int dirY = 0;
+        if(casasAndadasY > 0)   dirY = 1;
+        else                    dirY= -1;
+        casasAndadasY = Math.Abs(casasAndadasY);
+
+        int pecasLinha = 0;
+        int pecasOutraCorLinha = 0;
+
+        int retx = 0, rety = 0;
+        for(int i = 0; i < casasAndadasX; i++){
+            x+=dirX;
+            y+=dirY;
+            p = boardState[x][y];
+
+            if(p != null){
+                pecasLinha++;
+                if(PosHasPieceOfDifferentTag(x, y, attackingPiece.tag)){
+                    pecasOutraCorLinha++;
+                    retx = x;
+                    rety = y;
+                }
+            }
+        }
+        Vector2Int attackingDirection = new Vector2Int(retx, rety);
+        //Se for apenas uma, saber se é de outra cor
+        //Caso seja de outra cor, retorne a posição dela.
+
+        if(pecasLinha == pecasOutraCorLinha && pecasOutraCorLinha == 1) return new Vector2Int(retx, rety);
+        
+        return new Vector2Int(0, 0);
+    }
     Piece PieceToAttackFromPosition(Piece attackingPiece, int xEndPos, int yEndPos)
     {
         string attackingPieceTag = attackingPiece.tag;
         Debug.Log("PieceToAttackFromPosition: Can piece of tag " + attackingPieceTag + " attack position?");
         if (!PieceAtPosExists(xEndPos, yEndPos) && boardPreparator.IsDarkSquare(xEndPos, yEndPos))
         {
-            Vector2Int attackingPosition = GetAttackingPosition(attackingPiece.GetXPosition(), attackingPiece.GetYPosition(), xEndPos, yEndPos);
-            
-            if (PieceAtPosExists(attackingPosition.x, attackingPosition.y) && PosHasPieceOfDifferentTag(attackingPosition.x, attackingPosition.y, attackingPieceTag))
+            //Vector2Int attackingPosition = GetAttackingPosition(attackingPiece.GetXPosition(), attackingPiece.GetYPosition(), xEndPos, yEndPos);
+            Vector2Int attackingPosition = ExistsAtackedPiece(attackingPiece, xEndPos, yEndPos);
+            //if (PieceAtPosExists(attackingPosition.x, attackingPosition.y) && PosHasPieceOfDifferentTag(attackingPosition.x, attackingPosition.y, attackingPieceTag))
+            if (attackingPosition.x != 0)
             {
                 Debug.Log("PieceToAttackFromPosition: here is a piece to attack!");
                 return boardState[attackingPosition.x][attackingPosition.y];

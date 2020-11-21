@@ -76,6 +76,7 @@ public class Piece : MonoBehaviour
 
     public void makeDama()
     {
+
         bool dama = false;
         Debug.Log("GetPlayerNumber() " + GetPlayerNumber());
         Debug.Log("GetYPosition()" + GetYPosition());
@@ -90,7 +91,10 @@ public class Piece : MonoBehaviour
              Debug.Log("player 0 ou 2 and Yposition = 9") ;
             }
         }
-        if(dama) this.transform.Find("isDama").gameObject.SetActive(true);
+        if(dama) {
+            this.transform.Find("isDama").gameObject.SetActive(true);
+            maxMovementSquares = 10;
+        }
         //return dama;
     }
     public void AddHighlightPossibleMovements()
@@ -186,6 +190,9 @@ public class Piece : MonoBehaviour
     public bool CanMoveBackwards()
     {
         return backwardsAllowed;
+    }
+    public bool isThisDama(){
+        return maxMovementSquares != 1;
     }
 
     public void MoveTo(int xPosNew, int yPosNew)
