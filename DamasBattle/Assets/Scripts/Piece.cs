@@ -31,7 +31,7 @@ public class Piece : MonoBehaviour
     [SerializeField] GameObject infEsq = null;
     GameObject positionHighlightObject = null;*/
 
-    [SerializeField] GameObject dama = null;
+    [SerializeField] GameObject isDama = null;
 
     void Start()
     {
@@ -90,7 +90,7 @@ public class Piece : MonoBehaviour
              Debug.Log("player 0 ou 2 and Yposition = 9") ;
             }
         }
-        if(dama) this.transform.Find("dama").gameObject.SetActive(true);
+        if(dama) this.transform.Find("isDama").gameObject.SetActive(true);
         //return dama;
     }
     public void AddHighlightPossibleMovements()
@@ -190,10 +190,13 @@ public class Piece : MonoBehaviour
 
     public void MoveTo(int xPosNew, int yPosNew)
     {
-        Debug.Log("Moving piece at " + transform.position.x.ToString() + "," + transform.position.y.ToString() + " " +
-            "To " + xPosNew.ToString() + "," + yPosNew.ToString());
-        Vector2 newPosition = new Vector2(xPosNew, yPosNew);
+     //   if(isDama != null){
+            Debug.Log("Moving piece at " + transform.position.x.ToString() + "," + transform.position.y.ToString() + " " +
+                "To " + xPosNew.ToString() + "," + yPosNew.ToString());
+            Vector2 newPosition = new Vector2(xPosNew, yPosNew);
+       // }else{
 
+        //}
         this.transform.position = newPosition;
 
     }

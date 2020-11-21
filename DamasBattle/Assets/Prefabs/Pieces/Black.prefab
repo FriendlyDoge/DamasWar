@@ -195,7 +195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7755815117253394338, guid: 0efa3f892e110db4cbe802ac8020693c, type: 3}
       propertyPath: m_Name
-      value: dama
+      value: isDama
       objectReference: {fileID: 0}
     - target: {fileID: 7755815117253394338, guid: 0efa3f892e110db4cbe802ac8020693c, type: 3}
       propertyPath: m_IsActive

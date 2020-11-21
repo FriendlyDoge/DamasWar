@@ -53,11 +53,11 @@ public class BoardController : MonoBehaviour
 
     }
 
-    void EndCurrentPlayerTurn()
+    void EndCurrentPlayerTurn(bool atackAgain)
     {
         Debug.Log("Ending current player turn");
         RemoveCurrentPieceSelection();
-        UpdateCurrentPlayer();
+        if(!atackAgain) UpdateCurrentPlayer();
     }
 
     void UpdateCurrentPlayer()
@@ -103,7 +103,7 @@ public class BoardController : MonoBehaviour
     public void EmptySpaceClicked(int xWorldPos, int yWorldPos)
     {
         bool attacked = false;
-
+        bool attackAgain = false;
         Debug.Log("Empty Space Clicked");
         if (currentPiece == null)
         {
@@ -112,7 +112,6 @@ public class BoardController : MonoBehaviour
         else
         {
             if (currentPiece.GetPlayerNumber() == currentPlayerNumber)
-            //if(true)
             {
                 Piece targetPiece = PieceToAttackFromPosition(currentPiece, xWorldPos, yWorldPos);
                 if (targetPiece && boardPreparator.IsDarkSquare(xWorldPos, yWorldPos))
@@ -121,13 +120,14 @@ public class BoardController : MonoBehaviour
                     ExecuteAttack(currentPiece, targetPiece);
                     ExecuteMove(currentPiece.GetXPosition(), currentPiece.GetYPosition(), xWorldPos, yWorldPos);
                     attacked = true;
-                    EndCurrentPlayerTurn();
+                    attackAgain = CanAttackAgain(currentPiece.GetXPosition(), currentPiece.GetYPosition());
+                    EndCurrentPlayerTurn(attackAgain);
                 }
                 else if (CanMoveToSpace(currentPiece, xWorldPos, yWorldPos))
                 {
                     Debug.Log(xWorldPos.ToString() + " AND " + yWorldPos.ToString());
                     ExecuteMove(currentPiece.GetXPosition(), currentPiece.GetYPosition(), xWorldPos, yWorldPos);
-                    EndCurrentPlayerTurn();
+                    EndCurrentPlayerTurn(attackAgain);
 
                 }
             }
@@ -141,9 +141,28 @@ public class BoardController : MonoBehaviour
         
     }
 
-    private bool CanAttackAgain()
+    private bool CanAttackAgain(int x, int y)
     {
-        throw new NotImplementedException();
+        Piece targetPiece1 = null;
+        Piece targetPiece2 = null;
+        Piece targetPiece3 = null;
+        Piece targetPiece4 = null;
+        if(y+2<10){
+            if(x+2 < 10 && boardState[x+2][y+2] == null) targetPiece1 = PieceToAttackFromPosition(currentPiece, x+2, y+2);
+            if(x-2>0 && boardState[x-2][y+2] == null) targetPiece2 = PieceToAttackFromPosition(currentPiece, x-2, y+2);
+        }
+        if(y-2>0){
+            if(x-2 > 0 && boardState[x-2][y-2] == null) targetPiece3 = PieceToAttackFromPosition(currentPiece, x-2, y-2);
+            if(x+2 < 10 && boardState[x+2][y-2] == null) targetPiece4 = PieceToAttackFromPosition(currentPiece, x+2, y-2);
+        }
+        if(targetPiece1 || targetPiece2 || targetPiece3 || targetPiece4){
+            if(targetPiece1) print("Peca 1");
+            if(targetPiece2) print("Peca 2");
+            if(targetPiece3) print("Peca 3");
+            if(targetPiece4) print("Peca 4");
+            return true;
+        }
+        return false;
     }
 
     // Check if you can make a queen etc
@@ -228,6 +247,7 @@ public class BoardController : MonoBehaviour
     private void ExecuteAttack(Piece attacker, Piece targetPiece)
     {
         Debug.Log("ExecuteAttack: Executing attack");
+        boardState[targetPiece.GetXPosition()][targetPiece.GetYPosition()] = null;
         targetPiece.Die();
     }
 
