@@ -48,8 +48,10 @@ public class BoardController : MonoBehaviour
                 }
             }
         }
-
-        currentPlayerText.SetText(playerName);
+        if (currentPlayerText)
+        {
+            currentPlayerText.SetText(playerName);
+        }
 
     }
 
@@ -123,19 +125,23 @@ public class BoardController : MonoBehaviour
         }
     }
 
-    void UpdateCurrentPlayer()
+    public void UpdateCurrentPlayer()
     {
         Debug.Log("Updating current player");
         currentPlayerNumber++;
+        string name;
         if(currentPlayerNumber > playersNumbers)
         {
             currentPlayerNumber = 1;
-            currentPlayerText.SetText(playerName);
+            name = playerName;
         } else
         {
-            currentPlayerText.SetText(computerName);
+            name = computerName;
         }
-
+        if (currentPlayerText)
+        {
+            currentPlayerText.SetText(name);
+        }
     }
     public void PieceWasClicked(Piece piece)
     {
@@ -455,7 +461,7 @@ public class BoardController : MonoBehaviour
             return null;
         }
     }
-    bool PieceAtPosExists(int xPos, int yPos)
+    public bool PieceAtPosExists(int xPos, int yPos)
     {
         Debug.Log("PieceAtPosExists: Is there a piece at position X:" + xPos.ToString() + " Y:" +yPos.ToString() + " ?");
         Piece pieceAtPos = boardState[xPos][yPos];
@@ -545,4 +551,19 @@ public class BoardController : MonoBehaviour
             currentPiece = null;
         }
     }
+
+    public int GetCurrentPlayerNumber()
+    {
+        return currentPlayerNumber;
+    }
+
+#if UNITY_EDITOR
+
+    public void setTestData(BoardPreparator p)
+    {
+        this.boardPreparator = p;
+    }
+
+#endif
+
 }

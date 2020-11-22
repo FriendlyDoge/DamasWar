@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\PlayMode Tests\TestBoardPreparator.cs" />
+    <Compile Include="Assets\PlayMode Tests\TestBoardController.cs" />
+    <Compile Include="Assets\PlayMode Tests\TestPiece.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\PlayMode Tests\PlayMode Tests.asmdef" />

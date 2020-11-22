@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 704, y: 342}
-  m_MaxSize: {x: 16004, y: 8042}
+  m_MinSize: {x: 706, y: 492}
+  m_MaxSize: {x: 16006, y: 14042}
   vertical: 0
-  controlID: 5484
+  controlID: 724
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,10 +135,10 @@ MonoBehaviour:
     y: 0
     width: 1466
     height: 947
-  m_MinSize: {x: 603, y: 342}
-  m_MaxSize: {x: 12003, y: 8042}
+  m_MinSize: {x: 605, y: 492}
+  m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 5485
+  controlID: 725
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,10 +161,10 @@ MonoBehaviour:
     y: 0
     width: 1466
     height: 561
-  m_MinSize: {x: 603, y: 221}
-  m_MaxSize: {x: 12003, y: 4021}
+  m_MinSize: {x: 605, y: 221}
+  m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 5486
+  controlID: 726
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -184,8 +184,8 @@ MonoBehaviour:
     y: 0
     width: 363
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -221,7 +221,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 96d9ffff0edaffff2adaffffaadbffffb6ddffffd2ddffff9adeffff5cdfffff78dfffff3ee0ffffb4e0ffffd8e0ffffa0e1ffff6ee3ffff8ae3ffff54e4ffff7ae5ffff96e5ffff5ce6ffffc6e6ffffe2e6fffface7ffff76e8ffff92e8ffff60e9ffff48eaffff64eaffff2aebffff68ecffff84ecffff54edffffd4edfffff0edffffaceeffff56f0ffff86f4ffffa8f4fffffef9ffff
+      m_ExpandedIDs: 54f0ffff78f1ffff94f1ffff52f4ffff22f5ffff3ef5ffff0af8ffff9cfaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -264,8 +264,8 @@ MonoBehaviour:
     y: 0
     width: 652
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -406,15 +406,15 @@ MonoBehaviour:
     y: 0
     width: 451
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
   - {fileID: 10}
   - {fileID: 11}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -523,14 +523,14 @@ MonoBehaviour:
     y: 561
     width: 1466
     height: 386
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 14}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
   - {fileID: 14}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -569,21 +569,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Pieces
+    - Assets/PlayMode Tests
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Pieces
+  - Assets/PlayMode Tests
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\frien\Documents\Projects\Damas\DamasBattle
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 123e0000
-    m_LastClickedID: 15890
-    m_ExpandedIDs: 00000000ea3d0000463e00008a3e000000ca9a3bffffff7f
+    m_SelectedIDs: ca3d0000
+    m_LastClickedID: 15818
+    m_ExpandedIDs: 00000000b23d0000b43d0000b63d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -611,7 +611,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ea3d0000463e00008a3e000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000b23d0000b43d0000b63d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -711,8 +711,8 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 947
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
@@ -783,7 +783,7 @@ MonoBehaviour:
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 5520
+    ID: 761
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -815,7 +815,7 @@ MonoBehaviour:
       name: DamasBattle
       fullName: DamasBattle
       resultStatus: 0
-      duration: 0.0762853
+      duration: 0.0836191
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -831,7 +831,7 @@ MonoBehaviour:
       name: PlayModeTests.dll
       fullName: C:/Users/frien/Documents/Projects/Damas/DamasBattle/Library/ScriptAssemblies/PlayModeTests.dll
       resultStatus: 0
-      duration: 0.0639305
+      duration: 0.0712843
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -847,7 +847,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 0
-      duration: 0.061153
+      duration: 0.0678263
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -858,13 +858,55 @@ MonoBehaviour:
       categories: []
       parentId: 1011
       parentUniqueId: '[PlayModeTests.dll][suite]'
+    - id: 1001
+      uniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardController][suite]
+      name: TestBoardController
+      fullName: Tests.TestBoardController
+      resultStatus: 0
+      duration: 0.0393278
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1007
+      parentUniqueId: PlayModeTests.dll/[PlayModeTests][Tests][suite]
+    - id: 1002
+      uniqueId: PlayModeTests.dll/Tests/TestBoardController/[PlayModeTests][Tests.TestBoardController.TestBoardControllerExec]
+      name: TestBoardControllerExec
+      fullName: Tests.TestBoardController.TestBoardControllerExec
+      resultStatus: 0
+      duration: 0.0179407
+      messages: 'System.NullReferenceException : Object reference not set to an instance
+        of an object'
+      output: 'Updating current player
+
+'
+      stacktrace: "  at BoardController.UpdateCurrentPlayer () [0x00040] in C:\\Users\\frien\\Documents\\Projects\\Damas\\DamasBattle\\Assets\\Scripts\\BoardController.cs:75
+        \r\n  at Tests.TestBoardController.TestBoardControllerExec () [0x0002e] in
+        C:\\Users\\frien\\Documents\\Projects\\Damas\\DamasBattle\\Assets\\PlayMode
+        Tests\\TestBoardController.cs:25 \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+        at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
+        System.Globalization.CultureInfo culture) [0x00032] in <fb001e01371b4adca20013e0ac763896>:0 "
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardController][suite]
     - id: 1009
       uniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardPreparator][suite]
       name: TestBoardPreparator
       fullName: Tests.TestBoardPreparator
       resultStatus: 0
-      duration: 0.0576813
-      messages: One or more child tests had errors
+      duration: 0.0242371
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -879,13 +921,10 @@ MonoBehaviour:
       name: TestPrepareBoard
       fullName: Tests.TestBoardPreparator.TestPrepareBoard
       resultStatus: 0
-      duration: 0.0354864
-      messages: "  Expected: 9\r\n  But was:  10\r\n"
+      duration: 0.0166941
+      messages: 
       output: 
-      stacktrace: 'at Tests.TestBoardPreparator.TestPrepareBoard () [0x00029] in
-        C:\Users\frien\Documents\Projects\Damas\DamasBattle\Assets\PlayMode Tests\TestBoardPreparator.cs:26
-
-'
+      stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -894,18 +933,29 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardPreparator][suite]
-    m_ResultText: "TestPrepareBoard (0,035s)\n---\nExpected: 9\r\n  But was:  10\n---\nat
-      Tests.TestBoardPreparator.TestPrepareBoard () [0x00029] in C:\\Users\\frien\\Documents\\Projects\\Damas\\DamasBattle\\Assets\\PlayMode
-      Tests\\TestBoardPreparator.cs:26"
-    m_ResultStacktrace: 'at Tests.TestBoardPreparator.TestPrepareBoard () [0x00029]
-      in C:\Users\frien\Documents\Projects\Damas\DamasBattle\Assets\PlayMode Tests\TestBoardPreparator.cs:26
-
-'
+    m_ResultText: "TestBoardControllerExec (0,018s)\n---\nSystem.NullReferenceException
+      : Object reference not set to an instance of an object\n---\nat BoardController.UpdateCurrentPlayer
+      () [0x00040] in C:\\Users\\frien\\Documents\\Projects\\Damas\\DamasBattle\\Assets\\Scripts\\BoardController.cs:75
+      \r\n  at Tests.TestBoardController.TestBoardControllerExec () [0x0002e] in
+      C:\\Users\\frien\\Documents\\Projects\\Damas\\DamasBattle\\Assets\\PlayMode
+      Tests\\TestBoardController.cs:25 \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+      at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
+      culture) [0x00032] in <fb001e01371b4adca20013e0ac763896>:0\n---\nUpdating current
+      player"
+    m_ResultStacktrace: "  at BoardController.UpdateCurrentPlayer () [0x00040] in
+      C:\\Users\\frien\\Documents\\Projects\\Damas\\DamasBattle\\Assets\\Scripts\\BoardController.cs:75
+      \r\n  at Tests.TestBoardController.TestBoardControllerExec () [0x0002e] in
+      C:\\Users\\frien\\Documents\\Projects\\Damas\\DamasBattle\\Assets\\PlayMode
+      Tests\\TestBoardController.cs:25 \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
+      at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
+      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
+      culture) [0x00032] in <fb001e01371b4adca20013e0ac763896>:0 "
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 926f78c8
-      m_LastClickedID: -931631214
-      m_ExpandedIDs: ae332b9144b3fb9ccc981215ae16f579ffffff7f
+      m_SelectedIDs: 466a8c81
+      m_LastClickedID: -2121504186
+      m_ExpandedIDs: ae332b9144b3fb9ccc981215ae16f579cc6b447bffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

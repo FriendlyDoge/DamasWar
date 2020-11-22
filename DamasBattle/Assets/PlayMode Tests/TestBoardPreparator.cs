@@ -28,7 +28,6 @@ namespace Tests
             {
                 Assert.AreEqual(10, pieces[i].Length);
             }
-
         }
     }
 }

@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Project
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 392}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -116,10 +116,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 704, y: 342}
-  m_MaxSize: {x: 16004, y: 8042}
+  m_MinSize: {x: 706, y: 492}
+  m_MaxSize: {x: 16006, y: 14042}
   vertical: 0
-  controlID: 5619
+  controlID: 58
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,10 +142,10 @@ MonoBehaviour:
     y: 0
     width: 1466
     height: 947
-  m_MinSize: {x: 603, y: 342}
-  m_MaxSize: {x: 12003, y: 8042}
+  m_MinSize: {x: 605, y: 492}
+  m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 5620
+  controlID: 136
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,10 +165,10 @@ MonoBehaviour:
     y: 0
     width: 1466
     height: 561
-  m_MinSize: {x: 603, y: 221}
-  m_MaxSize: {x: 12003, y: 4021}
+  m_MinSize: {x: 605, y: 221}
+  m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 5621
+  controlID: 137
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,8 +188,8 @@ MonoBehaviour:
     y: 0
     width: 363
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -214,8 +214,8 @@ MonoBehaviour:
     y: 0
     width: 652
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -245,15 +245,15 @@ MonoBehaviour:
     y: 0
     width: 451
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
   - {fileID: 16}
   - {fileID: 17}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -273,14 +273,14 @@ MonoBehaviour:
     y: 561
     width: 1466
     height: 386
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -300,8 +300,8 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 947
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 20}
@@ -425,9 +425,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 16370000
       m_LastClickedID: 0
-      m_ExpandedIDs: f8d7ffff14d8ffff96d9ffff0edaffff2adaffffaadbffffb6ddffffd2ddffff9adeffff5cdfffff78dfffff3ee0ffffb4e0ffffd8e0ffffa0e1ffff6ee3ffff8ae3ffff54e4ffff7ae5ffff96e5ffff5ce6ffffc6e6ffffe2e6fffface7ffff76e8ffff92e8ffff60e9ffff48eaffff64eaffff2aebffff68ecffff84ecffff54edffffd4edfffff0edffffaceeffff56f0ffff86f4ffffa8f4fffffef9ffff
+      m_ExpandedIDs: 5afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -694,21 +694,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Pieces
+    - Assets/PlayMode Tests
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Pieces
+  - Assets/PlayMode Tests
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\frien\Documents\Projects\Damas\DamasBattle
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 123e0000
-    m_LastClickedID: 15890
-    m_ExpandedIDs: 00000000ea3d0000463e00008a3e000000ca9a3bffffff7f
+    m_SelectedIDs: a43d0000
+    m_LastClickedID: 15780
+    m_ExpandedIDs: 00000000963d0000983d00009a3d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -736,7 +736,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ea3d0000463e00008a3e000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000963d0000983d00009a3d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: 14102
   m_LastVerticalScrollValue: 0
   m_AssetGUID: 
   m_InstanceID: 0
@@ -881,7 +881,7 @@ MonoBehaviour:
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 5730
+    ID: 177
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -913,7 +913,7 @@ MonoBehaviour:
       name: DamasBattle
       fullName: DamasBattle
       resultStatus: 1
-      duration: 0.0654608
+      duration: 0.080739
       messages: 
       output: 
       stacktrace: 
@@ -929,7 +929,7 @@ MonoBehaviour:
       name: PlayModeTests.dll
       fullName: C:/Users/frien/Documents/Projects/Damas/DamasBattle/Library/ScriptAssemblies/PlayModeTests.dll
       resultStatus: 1
-      duration: 0.0521903
+      duration: 0.0685784
       messages: 
       output: 
       stacktrace: 
@@ -945,7 +945,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.0495337
+      duration: 0.0657551
       messages: 
       output: 
       stacktrace: 
@@ -956,12 +956,45 @@ MonoBehaviour:
       categories: []
       parentId: 1011
       parentUniqueId: '[PlayModeTests.dll][suite]'
+    - id: 1001
+      uniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardController][suite]
+      name: TestBoardController
+      fullName: Tests.TestBoardController
+      resultStatus: 1
+      duration: 0.0460056
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1007
+      parentUniqueId: PlayModeTests.dll/[PlayModeTests][Tests][suite]
+    - id: 1002
+      uniqueId: PlayModeTests.dll/Tests/TestBoardController/[PlayModeTests][Tests.TestBoardController.TestUpdatePlayer]
+      name: TestUpdatePlayer
+      fullName: Tests.TestBoardController.TestUpdatePlayer
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardController][suite]
     - id: 1009
       uniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardPreparator][suite]
       name: TestBoardPreparator
       fullName: Tests.TestBoardPreparator
       resultStatus: 1
-      duration: 0.0463023
+      duration: 0.0149543
       messages: 
       output: 
       stacktrace: 
@@ -977,7 +1010,7 @@ MonoBehaviour:
       name: TestPrepareBoard
       fullName: Tests.TestBoardPreparator.TestPrepareBoard
       resultStatus: 1
-      duration: 0.0251661
+      duration: 0.0036545
       messages: 
       output: 
       stacktrace: 
@@ -989,13 +1022,70 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardPreparator][suite]
-    m_ResultText: TestPrepareBoard (0,025s)
+    - id: 1005
+      uniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestPiece][suite]
+      name: TestPiece
+      fullName: Tests.TestPiece
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1009
+      parentUniqueId: PlayModeTests.dll/[PlayModeTests][Tests][suite]
+    - id: 1006
+      uniqueId: PlayModeTests.dll/Tests/TestPiece/[PlayModeTests][Tests.TestPiece.TestPieceSimplePasses]
+      name: TestPieceSimplePasses
+      fullName: Tests.TestPiece.TestPieceSimplePasses
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestPiece][suite]
+    - id: 1007
+      uniqueId: PlayModeTests.dll/Tests/TestPiece/[PlayModeTests][Tests.TestPiece.TestPieceWithEnumeratorPasses]
+      name: TestPieceWithEnumeratorPasses
+      fullName: Tests.TestPiece.TestPieceWithEnumeratorPasses
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestPiece][suite]
+    m_ResultText: 'TestBoardControllerExec (0,026s)
+
+      ---
+
+      Updating current
+      player
+
+      Updating current player'
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 926f78c8
-      m_LastClickedID: -931631214
-      m_ExpandedIDs: ae332b9144b3fb9ccc981215ae16f579ffffff7f
+      m_SelectedIDs: 466a8c81
+      m_LastClickedID: -2121504186
+      m_ExpandedIDs: ae332b9144b3fb9ccc981215ae16f579cc6b447bffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
