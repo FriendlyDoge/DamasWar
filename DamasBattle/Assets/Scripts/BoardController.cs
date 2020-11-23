@@ -57,8 +57,14 @@ public class BoardController : MonoBehaviour
     {
         Debug.Log("Ending current player turn");
         RemoveCurrentPieceSelection();
-        if(!atackAgain) UpdateCurrentPlayer();
-        TurnoIA();
+        if (!atackAgain)
+        {
+            UpdateCurrentPlayer();
+        }
+        if (currentPlayerNumber != 1)
+        {
+            TurnoIA();
+        }
         UpdateCurrentPlayer();
     }
 
@@ -78,7 +84,7 @@ public class BoardController : MonoBehaviour
                     pos = new int[2];
                     p = boardState[i][j];
                     if (p != null) pos = botAttacker(p, i, j);
-                    if (pos != null && atk == false)
+                    if (p && pos != null && atk == false && p.CompareTag("P2 Piece")) // p.CompareTag("P2 Piece") serve pra escolher só peça da IA
                     {
                         Piece targetPiece = PieceToAttackFromPosition(p, pos[0], pos[1]);
                         if (targetPiece && boardPreparator.IsDarkSquare(pos[0], pos[1]))
@@ -103,17 +109,20 @@ public class BoardController : MonoBehaviour
                 for (int j = 0; j < 10; j++)
                 {
                     p = boardState[i][j];
-                    if (p != null && move == false)
+                    if (p != null && move == false && p.CompareTag("P2 Piece"))
                     {
-                        if (boardState[i + 2][j + 2] != null && boardPreparator.IsDarkSquare(i+2, j+2))
+                        if (IsPositionInsideBoard(i + 2, j + 2) && boardState[i + 2][j + 2] != null && boardPreparator.IsDarkSquare(i+2, j+2))
                         {
-                            ExecuteMove(currentPiece.GetXPosition(), currentPiece.GetYPosition(), i+2, j+2);
+                            // aqui estava currentPiece que é a peça selecionada atualmente, só que a peça atual não era p.
+                            currentPiece = p;
+                            ExecuteMove(p.GetXPosition(), p.GetYPosition(), i+2, j+2);
                             EndCurrentPlayerTurn(attackAgain);
                             move = true;
                         }
-                        else if (boardState[i - 2][j + 2] != null && boardPreparator.IsDarkSquare(i - 2, j + 2))
+                        else if (IsPositionInsideBoard(i - 2, j + 2) && boardState[i - 2][j + 2] != null && boardPreparator.IsDarkSquare(i - 2, j + 2))
                         {
-                            ExecuteMove(currentPiece.GetXPosition(), currentPiece.GetYPosition(), i - 2, j + 2);
+                            currentPiece = p;
+                            ExecuteMove(p.GetXPosition(), p.GetYPosition(), i - 2, j + 2);
                             EndCurrentPlayerTurn(attackAgain);
                             move = true;
                         }
@@ -121,6 +130,11 @@ public class BoardController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool IsPositionInsideBoard(int v1, int v2)
+    {
+        return (v1 < 10 && v1 >= 0 && v2 >= 0 && v2 < 10);
     }
 
     void UpdateCurrentPlayer()
