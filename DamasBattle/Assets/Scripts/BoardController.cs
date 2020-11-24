@@ -76,6 +76,7 @@ public class BoardController : MonoBehaviour
 
     void BotAction()
     {
+        //If CountBlackPieces == 0, o player ganhou
         Piece p;
         bool atk = false;
         bool move = false;
@@ -136,7 +137,7 @@ public class BoardController : MonoBehaviour
                         }
 
                         Implementando o aleatorio a partir daqui, o codigo em cima funfa mas n aleatorio */
-                        if (CanBlackMove(p)) possibleMoves.Add(p);//Fazuma lsita de possiveis pecas a serem mexidas
+                        if (CanBlackMove(p)) possibleMoves.Add(p);//Faz uma lista de possiveis pecas a serem mexidas
                     }
                 }
             }
@@ -150,7 +151,7 @@ public class BoardController : MonoBehaviour
             if (direction == 1)
             {
                 int i = p.GetXPosition(), j = p.GetYPosition();
-                if (boardState[i + 1][j - 1] == null)
+                if (IsPositionInsideBoard(i + 1, j - 1) && boardState[i + 1][j - 1] == null)
                 {
                     ExecuteMove(p.GetXPosition(), p.GetYPosition(), i + 1, j - 1);
                     EndCurrentPlayerTurn(attackAgain);
@@ -166,7 +167,7 @@ public class BoardController : MonoBehaviour
             else
             {
                 int i = p.GetXPosition(), j = p.GetYPosition();
-                if (boardState[i - 1][j - 1] == null)
+                if (IsPositionInsideBoard(i - 1, j - 1) && boardState[i - 1][j - 1] == null)
                 {
                     ExecuteMove(p.GetXPosition(), p.GetYPosition(), i - 1, j - 1);
                     EndCurrentPlayerTurn(attackAgain);
@@ -180,6 +181,7 @@ public class BoardController : MonoBehaviour
                 }
             }
         }
+        //If(move == 0), o player ganhou. Significa q ele n conseguiu nem comer ngm nem fazer nenhum movimento
     }
 
     bool CanBlackMove(Piece p)
