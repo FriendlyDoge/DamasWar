@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Game
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 392}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -119,10 +119,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 704, y: 342}
-  m_MaxSize: {x: 16004, y: 8042}
+  m_MinSize: {x: 880, y: 342}
+  m_MaxSize: {x: 16005, y: 8042}
   vertical: 0
-  controlID: 5619
+  controlID: 231
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,10 +144,10 @@ MonoBehaviour:
     y: 0
     width: 1466
     height: 947
-  m_MinSize: {x: 603, y: 342}
-  m_MaxSize: {x: 12003, y: 8042}
+  m_MinSize: {x: 605, y: 342}
+  m_MaxSize: {x: 12005, y: 8042}
   vertical: 1
-  controlID: 5620
+  controlID: 115
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,10 +170,10 @@ MonoBehaviour:
     y: 0
     width: 1466
     height: 561
-  m_MinSize: {x: 603, y: 221}
-  m_MaxSize: {x: 12003, y: 4021}
+  m_MinSize: {x: 605, y: 221}
+  m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 5621
+  controlID: 116
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,8 +219,8 @@ MonoBehaviour:
     y: 0
     width: 652
     height: 561
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -253,7 +253,7 @@ MonoBehaviour:
   - {fileID: 16}
   - {fileID: 17}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -273,8 +273,8 @@ MonoBehaviour:
     y: 561
     width: 1466
     height: 386
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 18}
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -300,14 +300,14 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 947
-  m_MinSize: {x: 100, y: 100}
+  m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 21}
+  m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
   - {fileID: 21}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_MaximizeOnPlay: 1
+  m_MaximizeOnPlay: 0
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
@@ -427,7 +427,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f8d7ffff14d8ffff96d9ffff0edaffff2adaffffaadbffffb6ddffffd2ddffff9adeffff5cdfffff78dfffff3ee0ffffb4e0ffffd8e0ffffa0e1ffff6ee3ffff8ae3ffff54e4ffff7ae5ffff96e5ffff5ce6ffffc6e6ffffe2e6fffface7ffff76e8ffff92e8ffff60e9ffff48eaffff64eaffff2aebffff68ecffff84ecffff54edffffd4edfffff0edffffaceeffff56f0ffff86f4ffffa8f4fffffef9ffff
+      m_ExpandedIDs: 28f6ffff48f6ffff64f6ffff62faffff0afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -706,9 +706,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 123e0000
-    m_LastClickedID: 15890
-    m_ExpandedIDs: 00000000ea3d0000463e00008a3e000000ca9a3bffffff7f
+    m_SelectedIDs: 34470000
+    m_LastClickedID: 18228
+    m_ExpandedIDs: 00000000a03d0000a23d0000a43d00009c46000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -736,7 +736,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ea3d0000463e00008a3e000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000a03d0000a23d0000a43d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -881,7 +881,7 @@ MonoBehaviour:
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 5730
+    ID: 171
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -904,7 +904,7 @@ MonoBehaviour:
     oldMinSizes: 
     oldMaxSizes: 
     oldSplitSize: 0
-  m_TestTypeToolbarIndex: 0
+  m_TestTypeToolbarIndex: 1
   m_PlayModeTestListGUI:
     m_Window: {fileID: 21}
     newResultList:
@@ -913,7 +913,7 @@ MonoBehaviour:
       name: DamasBattle
       fullName: DamasBattle
       resultStatus: 1
-      duration: 0.0654608
+      duration: 0.1388744
       messages: 
       output: 
       stacktrace: 
@@ -929,7 +929,7 @@ MonoBehaviour:
       name: PlayModeTests.dll
       fullName: C:/Users/frien/Documents/Projects/Damas/DamasBattle/Library/ScriptAssemblies/PlayModeTests.dll
       resultStatus: 1
-      duration: 0.0521903
+      duration: 0.1104272
       messages: 
       output: 
       stacktrace: 
@@ -945,7 +945,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.0495337
+      duration: 0.1026115
       messages: 
       output: 
       stacktrace: 
@@ -956,12 +956,49 @@ MonoBehaviour:
       categories: []
       parentId: 1011
       parentUniqueId: '[PlayModeTests.dll][suite]'
+    - id: 1001
+      uniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardController][suite]
+      name: TestBoardController
+      fullName: Tests.TestBoardController
+      resultStatus: 1
+      duration: 0.0544661
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1007
+      parentUniqueId: PlayModeTests.dll/[PlayModeTests][Tests][suite]
+    - id: 1002
+      uniqueId: PlayModeTests.dll/Tests/TestBoardController/[PlayModeTests][Tests.TestBoardController.TestUpdatePlayer]
+      name: TestUpdatePlayer
+      fullName: Tests.TestBoardController.TestUpdatePlayer
+      resultStatus: 1
+      duration: 0.0275706
+      messages: 
+      output: 'Updating current player
+
+        Updating current player
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardController][suite]
     - id: 1009
       uniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardPreparator][suite]
       name: TestBoardPreparator
       fullName: Tests.TestBoardPreparator
       resultStatus: 1
-      duration: 0.0463023
+      duration: 0.0144413
       messages: 
       output: 
       stacktrace: 
@@ -977,7 +1014,7 @@ MonoBehaviour:
       name: TestPrepareBoard
       fullName: Tests.TestBoardPreparator.TestPrepareBoard
       resultStatus: 1
-      duration: 0.0251661
+      duration: 0.0034791
       messages: 
       output: 
       stacktrace: 
@@ -989,13 +1026,110 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestBoardPreparator][suite]
-    m_ResultText: TestPrepareBoard (0,025s)
+    - id: 1005
+      uniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestPiece][suite]
+      name: TestPiece
+      fullName: Tests.TestPiece
+      resultStatus: 1
+      duration: 0.0248962
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1009
+      parentUniqueId: PlayModeTests.dll/[PlayModeTests][Tests][suite]
+    - id: 1016
+      uniqueId: PlayModeTests.dll/Tests/TestPiece/[PlayModeTests][Tests.TestPiece.TestPieceCanReach]
+      name: TestPieceCanReach
+      fullName: Tests.TestPiece.TestPieceCanReach
+      resultStatus: 1
+      duration: 0.0055171
+      messages: 
+      output: 'player 1 and Yposition = 0
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestPiece][suite]
+    - id: 1015
+      uniqueId: PlayModeTests.dll/Tests/TestPiece/[PlayModeTests][Tests.TestPiece.TestPieceDama]
+      name: TestPieceDama
+      fullName: Tests.TestPiece.TestPieceDama
+      resultStatus: 1
+      duration: 0.0017833
+      messages: 
+      output: 'player 1 and Yposition = 0
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestPiece][suite]
+    - id: 1009
+      uniqueId: PlayModeTests.dll/Tests/TestPiece/[PlayModeTests][Tests.TestPiece.TestPieceDie]
+      name: TestPieceDie
+      fullName: Tests.TestPiece.TestPieceDie
+      resultStatus: 1
+      duration: 0.004528
+      messages: 
+      output: 'Animator is not playing an AnimatorController
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1005
+      parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestPiece][suite]
+    - id: 1014
+      uniqueId: PlayModeTests.dll/Tests/TestPiece/[PlayModeTests][Tests.TestPiece.TestPiecePositions]
+      name: TestPiecePositions
+      fullName: Tests.TestPiece.TestPiecePositions
+      resultStatus: 1
+      duration: 0.0029316
+      messages: 
+      output: 'Moving piece at 10,5 To 15,15
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1013
+      parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestPiece][suite]
+    m_ResultText: 'TestPieceCanReach (0,006s)
+
+      ---
+
+      player 1 and Yposition
+      = 0'
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 926f78c8
-      m_LastClickedID: -931631214
-      m_ExpandedIDs: ae332b9144b3fb9ccc981215ae16f579ffffff7f
+      m_SelectedIDs: 507c9544
+      m_LastClickedID: 1150647376
+      m_ExpandedIDs: ae332b9144b3fb9c86e37d02cc981215ae16f579cc6b447bffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1029,7 +1163,7 @@ MonoBehaviour:
       name: DamasBattle
       fullName: DamasBattle
       resultStatus: 1
-      duration: 0.1008403
+      duration: 0.0651196
       messages: 
       output: 
       stacktrace: 
@@ -1045,7 +1179,7 @@ MonoBehaviour:
       name: Tests.dll
       fullName: C:/Users/frien/Documents/Projects/Damas/DamasBattle/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 0.0484528
+      duration: 0.0412468
       messages: 
       output: 
       stacktrace: 
@@ -1061,7 +1195,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.0472476
+      duration: 0.0394135
       messages: 
       output: 
       stacktrace: 
@@ -1077,7 +1211,7 @@ MonoBehaviour:
       name: TestBoardPreparator
       fullName: Tests.TestBoardPreparator
       resultStatus: 1
-      duration: 0.04493
+      duration: 0.0228335
       messages: 
       output: 
       stacktrace: 
@@ -1093,7 +1227,7 @@ MonoBehaviour:
       name: TestIsDarkSquare
       fullName: Tests.TestBoardPreparator.TestIsDarkSquare
       resultStatus: 1
-      duration: 0.0231383
+      duration: 0.0033261
       messages: 
       output: 'You are trying to create a MonoBehaviour using the ''new'' keyword. 
         This is not allowed.  MonoBehaviours can only be added using AddComponent().
@@ -1115,7 +1249,7 @@ MonoBehaviour:
       name: TestPreparePieces
       fullName: Tests.TestBoardPreparator.TestPreparePieces
       resultStatus: 1
-      duration: 0.0004357
+      duration: 0.0002681
       messages: 
       output: 
       stacktrace: 
@@ -1127,12 +1261,12 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: Tests.dll/Tests/[Tests][Tests.TestBoardPreparator][suite]
-    m_ResultText: 
+    m_ResultText: TestPreparePieces (0,000s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
+      m_SelectedIDs: c31eb728
+      m_LastClickedID: 683089603
       m_ExpandedIDs: ee6aacc7e557abf78359db41ae16f579ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0

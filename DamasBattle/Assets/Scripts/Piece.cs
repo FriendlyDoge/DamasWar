@@ -91,7 +91,12 @@ public class Piece : MonoBehaviour
             }
         }
         if(dama) {
-            this.transform.Find("isDama").gameObject.SetActive(true);
+            Transform t = this.transform.Find("isDama");
+            if (t)
+            {
+                t.gameObject.SetActive(true);
+            }
+            // Com isso aqui já se sabe se é dama ou não
             maxMovementSquares = 10;
         }
         //return dama;
@@ -205,7 +210,7 @@ public class Piece : MonoBehaviour
     {
         int currY = GetYPosition();
 
-        if (Mathf.Abs(posYNew - currY) <= maxMovementSquares)
+        if (Mathf.Abs(Mathf.Abs(posYNew) - Mathf.Abs(currY) ) <= maxMovementSquares)
         {
             return true;
         } else

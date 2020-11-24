@@ -48,8 +48,10 @@ public class BoardController : MonoBehaviour
                 }
             }
         }
-
-        currentPlayerText.SetText(playerName);
+        if (currentPlayerText)
+        {
+            currentPlayerText.SetText(playerName);
+        }
 
     }
 
@@ -58,24 +60,93 @@ public class BoardController : MonoBehaviour
         Debug.Log("Ending current player turn");
         RemoveCurrentPieceSelection();
         if(!atackAgain) UpdateCurrentPlayer();
+        TurnoIA();
+        UpdateCurrentPlayer();
     }
 
-    void UpdateCurrentPlayer()
+    void TurnoIA()
+    {
+        Piece p;
+        bool atk = false;
+        bool move = false;
+        bool attackAgain = false;
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (((i + j) % 2) == 0)
+                {
+                    int[] pos;
+                    pos = new int[2];
+                    p = boardState[i][j];
+                    if (p != null) pos = botAttacker(p, i, j);
+                    if (pos != null && atk == false)
+                    {
+                        Piece targetPiece = PieceToAttackFromPosition(p, pos[0], pos[1]);
+                        if (targetPiece && boardPreparator.IsDarkSquare(pos[0], pos[1]))
+                        {
+                            Debug.Log("Can attack!");
+                            ExecuteAttack(p, targetPiece);
+                            ExecuteMove(p.GetXPosition(), p.GetYPosition(), pos[0], pos[1]);
+
+                            attackAgain = CanAttackAgain(p.GetXPosition(), p.GetYPosition());
+                            EndCurrentPlayerTurn(attackAgain);
+                            atk = true;
+                        }
+                    }
+                }
+            }
+        }
+        if(atk == false)
+        {
+            //Botar um seed
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    p = boardState[i][j];
+                    if (p != null && move == false)
+                    {
+                        if (boardState[i + 2][j + 2] != null && boardPreparator.IsDarkSquare(i+2, j+2))
+                        {
+                            ExecuteMove(currentPiece.GetXPosition(), currentPiece.GetYPosition(), i+2, j+2);
+                            EndCurrentPlayerTurn(attackAgain);
+                            move = true;
+                        }
+                        else if (boardState[i - 2][j + 2] != null && boardPreparator.IsDarkSquare(i - 2, j + 2))
+                        {
+                            ExecuteMove(currentPiece.GetXPosition(), currentPiece.GetYPosition(), i - 2, j + 2);
+                            EndCurrentPlayerTurn(attackAgain);
+                            move = true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void UpdateCurrentPlayer()
     {
         Debug.Log("Updating current player");
         currentPlayerNumber++;
+        string name;
         if(currentPlayerNumber > playersNumbers)
         {
             currentPlayerNumber = 1;
-            currentPlayerText.SetText(playerName);
+            name = playerName;
         } else
         {
-            currentPlayerText.SetText(computerName);
+            name = computerName;
         }
-
+        if (currentPlayerText)
+        {
+            currentPlayerText.SetText(name);
+        }
     }
     public void PieceWasClicked(Piece piece)
     {
+        print("CountWhite: "+ countWhitePieces());
+        print("CountBlack: "+countBlackPieces());
         if(currentPiece != null)
         {
              
@@ -104,7 +175,7 @@ public class BoardController : MonoBehaviour
 
     public void EmptySpaceClicked(int xWorldPos, int yWorldPos)
     {
-        
+
         bool attackAgain = false;
         Debug.Log("Empty Space Clicked");
         if (currentPiece == null)
@@ -183,6 +254,45 @@ public class BoardController : MonoBehaviour
         return false;
     }
 
+    private int[] botAttacker(Piece p, int x, int y)
+    {
+        int[] res;
+        res = new int[2];
+        if (y + 2 < 10)
+        {
+            Debug.Log("X: " + x + " - Y:" + y);
+            if (x + 2 < 10 && boardState[x + 2][y + 2] == null)
+            {
+                res[0] = x + 2;
+                res[1] = y + 2;
+                return res;
+            }
+            if (x - 2 > 0 && boardState[x - 2][y + 2] == null)
+            {
+                res[0] = x - 2;
+                res[1] = y + 2;
+                return res;
+            }
+        }
+        if (y - 2 > 0)
+        {
+            Debug.Log("X: " + x + " - Y:" + y);
+
+            if (x - 2 > 0 && boardState[x - 2][y - 2] == null)
+            {
+                res[0] = x - 2;
+                res[1] = y - 2;
+                return res;
+            }
+            if (x + 2 < 10 && boardState[x + 2][y - 2] == null)
+            {
+                res[0] = x + 2;
+                res[1] = y - 2;
+                return res;
+            };
+        }
+        return null;
+    }
     // Check if you can make a queen etc
     private void CheckBoardState()
     {        
@@ -351,7 +461,7 @@ public class BoardController : MonoBehaviour
             return null;
         }
     }
-    bool PieceAtPosExists(int xPos, int yPos)
+    public bool PieceAtPosExists(int xPos, int yPos)
     {
         Debug.Log("PieceAtPosExists: Is there a piece at position X:" + xPos.ToString() + " Y:" +yPos.ToString() + " ?");
         Piece pieceAtPos = boardState[xPos][yPos];
@@ -389,6 +499,42 @@ public class BoardController : MonoBehaviour
         return p.CompareTag("P1 Piece");
     }
 
+    public int countBlackPieces(){
+        int x = 0;
+        bool isBlack = false;
+        Piece p;
+         for( int i = 0 ; i<10; i++){
+            for( int j= 0; j<10; j++){
+                if(((i+j)%2) == 0){
+                    p = boardState[i][j];
+                    if(p != null  ) isBlack = !IsWhitePiece(p);
+
+                    if(isBlack)
+                        x++;
+                        isBlack = false;
+                }
+            }
+        }
+        return x;
+    }
+    public int countWhitePieces(){
+        int x = 0;
+        bool isWhite = false;
+        Piece p;
+         for( int i = 0 ; i<10; i++){
+            for( int j= 0; j<10; j++){
+                if(((i+j)%2) == 0){
+                    p = boardState[i][j];
+                    if(p != null  ) isWhite = IsWhitePiece(p);
+
+                    if(isWhite)
+                        x++;
+                        isWhite = false;
+                }
+            }
+        }
+        return x;
+    }
     public void RestartGame()
     {
         boardPreparator.PrepareBoard();
@@ -405,4 +551,19 @@ public class BoardController : MonoBehaviour
             currentPiece = null;
         }
     }
+
+    public int GetCurrentPlayerNumber()
+    {
+        return currentPlayerNumber;
+    }
+
+#if UNITY_EDITOR
+
+    public void setTestData(BoardPreparator p)
+    {
+        this.boardPreparator = p;
+    }
+
+#endif
+
 }
