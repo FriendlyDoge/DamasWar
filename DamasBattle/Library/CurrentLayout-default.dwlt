@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Game
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -119,10 +119,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 706, y: 342}
-  m_MaxSize: {x: 16006, y: 8042}
+  m_MinSize: {x: 880, y: 342}
+  m_MaxSize: {x: 16005, y: 8042}
   vertical: 0
-  controlID: 1380
+  controlID: 231
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 342}
   m_MaxSize: {x: 12005, y: 8042}
   vertical: 1
-  controlID: 1325
+  controlID: 115
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 1326
+  controlID: 116
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,8 +193,8 @@ MonoBehaviour:
     y: 0
     width: 363
     height: 561
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -245,8 +245,8 @@ MonoBehaviour:
     y: 0
     width: 451
     height: 561
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -300,14 +300,14 @@ MonoBehaviour:
     y: 0
     width: 454
     height: 947
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 21}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
   - {fileID: 21}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -427,7 +427,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 54a9ffff70a9ffff32abffff50abffff6cabffff24adffff94adffffb0adffff70afffff90afffffacafffff9eb1ffffb2b1ffffceb1ffffc6b5ffff7eb6ffff9ab6ffff54b8ffff6ab8ffff86b8ffff40baffffb4baffffd0baffff88bcffff4ebdffff6abdffff24bfffff3abfffff56bfffff10c1ffff2ac1ffff46c1ffff08c3ffff84c3ffff9ec3ffffc0c3ffff38c4ffff54c4ffffeac4ffff58c5ffff74c5ffff02c6ffff6ac6ffff86c6ffff1cc7ffff38c7ffff54c7ffffe2c7ffff52c8ffff6ec8fffffcc8ffff6ec9ffff8ac9ffff16caffff96caffffb2caffff3ecbffffbecbffffdacbffff66ccffff7ecfffff9acfffff2ed0ffffaed0ffffcad0ffff92d3fffff2d4ffff0ed5ffffd8d7ffff88deffffa4deffff6ce1ffff8ee1ffffaae1ffff72e4ffff44e5ffff60e5ffffece5ffff0ce6ffff28e6ffffb6e6ffffd6e6fffff2e6fffff8e9ffff78eaffff94eaffff98edffffbceeffffd8eeffffc6f1ffff84f2ffffa0f2ffff6af3ffff88f3ffffa4f3ffff92f6ffff5afbffff
+      m_ExpandedIDs: 28f6ffff48f6ffff64f6ffff62faffff0afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -706,9 +706,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 52470000
-    m_LastClickedID: 18258
-    m_ExpandedIDs: 00000000963d0000983d00009a3d0000a63d000000ca9a3b
+    m_SelectedIDs: 34470000
+    m_LastClickedID: 18228
+    m_ExpandedIDs: 00000000a03d0000a23d0000a43d00009c46000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -736,7 +736,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000963d0000983d00009a3d000000ca9a3b
+    m_ExpandedIDs: 00000000a03d0000a23d0000a43d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -881,7 +881,7 @@ MonoBehaviour:
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 1421
+    ID: 171
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -904,7 +904,7 @@ MonoBehaviour:
     oldMinSizes: 
     oldMaxSizes: 
     oldSplitSize: 0
-  m_TestTypeToolbarIndex: 0
+  m_TestTypeToolbarIndex: 1
   m_PlayModeTestListGUI:
     m_Window: {fileID: 21}
     newResultList:
@@ -913,7 +913,7 @@ MonoBehaviour:
       name: DamasBattle
       fullName: DamasBattle
       resultStatus: 1
-      duration: 0.1376012
+      duration: 0.1388744
       messages: 
       output: 
       stacktrace: 
@@ -929,7 +929,7 @@ MonoBehaviour:
       name: PlayModeTests.dll
       fullName: C:/Users/frien/Documents/Projects/Damas/DamasBattle/Library/ScriptAssemblies/PlayModeTests.dll
       resultStatus: 1
-      duration: 0.0843389
+      duration: 0.1104272
       messages: 
       output: 
       stacktrace: 
@@ -945,7 +945,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.0698548
+      duration: 0.1026115
       messages: 
       output: 
       stacktrace: 
@@ -961,7 +961,7 @@ MonoBehaviour:
       name: TestBoardController
       fullName: Tests.TestBoardController
       resultStatus: 1
-      duration: 0.0761797
+      duration: 0.0544661
       messages: 
       output: 
       stacktrace: 
@@ -977,7 +977,7 @@ MonoBehaviour:
       name: TestUpdatePlayer
       fullName: Tests.TestBoardController.TestUpdatePlayer
       resultStatus: 1
-      duration: 0.0331499
+      duration: 0.0275706
       messages: 
       output: 'Updating current player
 
@@ -998,7 +998,7 @@ MonoBehaviour:
       name: TestBoardPreparator
       fullName: Tests.TestBoardPreparator
       resultStatus: 1
-      duration: 0.0263666
+      duration: 0.0144413
       messages: 
       output: 
       stacktrace: 
@@ -1014,7 +1014,7 @@ MonoBehaviour:
       name: TestPrepareBoard
       fullName: Tests.TestBoardPreparator.TestPrepareBoard
       resultStatus: 1
-      duration: 0.0035887
+      duration: 0.0034791
       messages: 
       output: 
       stacktrace: 
@@ -1031,7 +1031,7 @@ MonoBehaviour:
       name: TestPiece
       fullName: Tests.TestPiece
       resultStatus: 1
-      duration: 0.0574866
+      duration: 0.0248962
       messages: 
       output: 
       stacktrace: 
@@ -1047,7 +1047,7 @@ MonoBehaviour:
       name: TestPieceCanReach
       fullName: Tests.TestPiece.TestPieceCanReach
       resultStatus: 1
-      duration: 0.025072
+      duration: 0.0055171
       messages: 
       output: 'player 1 and Yposition = 0
 
@@ -1066,7 +1066,7 @@ MonoBehaviour:
       name: TestPieceDama
       fullName: Tests.TestPiece.TestPieceDama
       resultStatus: 1
-      duration: 0.022471
+      duration: 0.0017833
       messages: 
       output: 'player 1 and Yposition = 0
 
@@ -1085,7 +1085,7 @@ MonoBehaviour:
       name: TestPieceDie
       fullName: Tests.TestPiece.TestPieceDie
       resultStatus: 1
-      duration: 0.0153732
+      duration: 0.004528
       messages: 
       output: 'Animator is not playing an AnimatorController
 
@@ -1104,7 +1104,7 @@ MonoBehaviour:
       name: TestPiecePositions
       fullName: Tests.TestPiece.TestPiecePositions
       resultStatus: 1
-      duration: 0.0057984
+      duration: 0.0029316
       messages: 
       output: 'Moving piece at 10,5 To 15,15
 
@@ -1118,7 +1118,7 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1013
       parentUniqueId: PlayModeTests.dll/Tests/[PlayModeTests][Tests.TestPiece][suite]
-    m_ResultText: 'TestPieceCanReach (0,025s)
+    m_ResultText: 'TestPieceCanReach (0,006s)
 
       ---
 
@@ -1163,7 +1163,7 @@ MonoBehaviour:
       name: DamasBattle
       fullName: DamasBattle
       resultStatus: 1
-      duration: 0.1008403
+      duration: 0.0651196
       messages: 
       output: 
       stacktrace: 
@@ -1179,7 +1179,7 @@ MonoBehaviour:
       name: Tests.dll
       fullName: C:/Users/frien/Documents/Projects/Damas/DamasBattle/Library/ScriptAssemblies/Tests.dll
       resultStatus: 1
-      duration: 0.0484528
+      duration: 0.0412468
       messages: 
       output: 
       stacktrace: 
@@ -1195,7 +1195,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.0472476
+      duration: 0.0394135
       messages: 
       output: 
       stacktrace: 
@@ -1211,7 +1211,7 @@ MonoBehaviour:
       name: TestBoardPreparator
       fullName: Tests.TestBoardPreparator
       resultStatus: 1
-      duration: 0.04493
+      duration: 0.0228335
       messages: 
       output: 
       stacktrace: 
@@ -1227,7 +1227,7 @@ MonoBehaviour:
       name: TestIsDarkSquare
       fullName: Tests.TestBoardPreparator.TestIsDarkSquare
       resultStatus: 1
-      duration: 0.0231383
+      duration: 0.0033261
       messages: 
       output: 'You are trying to create a MonoBehaviour using the ''new'' keyword. 
         This is not allowed.  MonoBehaviours can only be added using AddComponent().
@@ -1249,7 +1249,7 @@ MonoBehaviour:
       name: TestPreparePieces
       fullName: Tests.TestBoardPreparator.TestPreparePieces
       resultStatus: 1
-      duration: 0.0004357
+      duration: 0.0002681
       messages: 
       output: 
       stacktrace: 
