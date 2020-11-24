@@ -111,6 +111,7 @@ public class BoardController : MonoBehaviour
         if(atk == false)
         {
             //Botar um seed, mas funciona
+            List<Piece> possibleMoves = new List<Piece>();
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
@@ -118,7 +119,7 @@ public class BoardController : MonoBehaviour
                     p = boardState[i][j];
                     if (p != null && move == false && p.CompareTag("P2 Piece"))
                     {
-                        if (IsPositionInsideBoard(i + 1, j - 1) && boardState[i + 1][j - 1] == null && boardPreparator.IsDarkSquare(i+1, j-1))
+                        /*if (IsPositionInsideBoard(i + 1, j - 1) && boardState[i + 1][j - 1] == null && boardPreparator.IsDarkSquare(i+1, j-1))
                         {
                             // aqui estava currentPiece que é a peça selecionada atualmente, só que a peça atual não era p.
                             currentPiece = p;
@@ -133,10 +134,60 @@ public class BoardController : MonoBehaviour
                             EndCurrentPlayerTurn(attackAgain);
                             move = true;
                         }
+
+                        Implementando o aleatorio a partir daqui, o codigo em cima funfa mas n aleatorio */
+                        if (CanBlackMove(p)) possibleMoves.Add(p);//Fazuma lsita de possiveis pecas a serem mexidas
                     }
                 }
             }
+            int size = possibleMoves.Count;
+            var rand = new System.Random();
+            p = possibleMoves[rand.Next(size)]; //Escolhe uma peca aleatoriamente do que foi selecionado
+            currentPiece = p;
+            int direction = rand.Next(2);
+            /*Se direction for true ele tenta ir pela direita. Se nao conseguir, ele vai pela esquerda, ja q teoricamente ele tem q conseguir ir pra algum lugar.
+             * Se direction for false ele comeca pela esquerda e dps vai pra direita.*/
+            if (direction == 1)
+            {
+                int i = p.GetXPosition(), j = p.GetYPosition();
+                if (boardState[i + 1][j - 1] == null)
+                {
+                    ExecuteMove(p.GetXPosition(), p.GetYPosition(), i + 1, j - 1);
+                    EndCurrentPlayerTurn(attackAgain);
+                    move = true;
+                }
+                else
+                {
+                    ExecuteMove(p.GetXPosition(), p.GetYPosition(), i - 1, j - 1);
+                    EndCurrentPlayerTurn(attackAgain);
+                    move = true;
+                }
+            }
+            else
+            {
+                int i = p.GetXPosition(), j = p.GetYPosition();
+                if (boardState[i - 1][j - 1] == null)
+                {
+                    ExecuteMove(p.GetXPosition(), p.GetYPosition(), i - 1, j - 1);
+                    EndCurrentPlayerTurn(attackAgain);
+                    move = true;
+                }
+                else
+                {
+                    ExecuteMove(p.GetXPosition(), p.GetYPosition(), i + 1, j - 1);
+                    EndCurrentPlayerTurn(attackAgain);
+                    move = true;
+                }
+            }
         }
+    }
+
+    bool CanBlackMove(Piece p)
+    {
+        int i = p.GetXPosition(), j = p.GetYPosition();
+        if (IsPositionInsideBoard(i - 1, j - 1) && boardState[i - 1][j - 1] == null && boardPreparator.IsDarkSquare(i - 1, j - 1)) return true;
+        if (IsPositionInsideBoard(i + 1, j - 1) && boardState[i + 1][j - 1] == null && boardPreparator.IsDarkSquare(i + 1, j - 1)) return true;
+        return false;
     }
 
     private bool IsPositionInsideBoard(int v1, int v2)
