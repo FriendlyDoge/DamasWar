@@ -31,7 +31,7 @@ public class BoardPreparator : MonoBehaviour
         }
     }
 
-    private Piece[][] PreparePieces()
+    public Piece[][] PreparePieces()
     {
         Piece[][] piecesBoard = new Piece[10][];
         for (int i = 0; i < 10; i++) {
@@ -73,6 +73,17 @@ public class BoardPreparator : MonoBehaviour
     {
         whitePiecePrefab = p;
         blackPiecePrefab = p;
+    }
+
+    public void setInstantiateField()
+    {
+        PreparePieces();
+    }
+
+    public void setPrefabsTest(Piece w, Piece b)
+    {
+        this.whitePiecePrefab = w;
+        this.blackPiecePrefab = b;
     }
 #endif
 }

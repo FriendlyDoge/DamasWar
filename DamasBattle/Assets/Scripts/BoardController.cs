@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using UnityEditor.UIElements;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class BoardController : MonoBehaviour
 {
@@ -30,10 +31,16 @@ public class BoardController : MonoBehaviour
     [SerializeField]
     TMPro.TextMeshProUGUI currentPlayerText = null;
 
+    CurrentPlayerText cPlayer =  null;
+
     void Start()
     {
         boardPreparator = GetComponent<BoardPreparator>();
         boardState = boardPreparator.PrepareBoard();
+
+        cPlayer = GameObject.Find("CurrentPlayerText").GetComponent<CurrentPlayerText>();
+        cPlayer.changePlayerText("P1");
+
         if (boardState.Length != 10)
         {
             Debug.LogError("Board of wrong size!");
@@ -48,10 +55,10 @@ public class BoardController : MonoBehaviour
                 }
             }
         }
-        if (currentPlayerText)
-        {
-            currentPlayerText.SetText(playerName);
-        }
+        //if (currentPlayerText)
+        //{
+         //   currentPlayerText.SetText(playerName);
+        //}
 
     }
 
@@ -138,10 +145,19 @@ public class BoardController : MonoBehaviour
         {
             name = computerName;
         }
-        if (currentPlayerText)
+        if(cPlayer.getActualText() == "P1")
         {
-            currentPlayerText.SetText(name);
+            cPlayer.changePlayerText("IA");
         }
+        else
+        {
+            cPlayer.changePlayerText("P1");
+        }
+        
+        //if (currentPlayerText)
+        //{
+        //    currentPlayerText.SetText(name);
+        //}
     }
     public void PieceWasClicked(Piece piece)
     {
@@ -472,7 +488,7 @@ public class BoardController : MonoBehaviour
         return false;
     }
 
-    bool PosHasPieceOfDifferentTag(int xPos, int yPos, string tagName)
+    public bool PosHasPieceOfDifferentTag(int xPos, int yPos, string tagName)
     {
         Debug.Log("PosHasPieceOfDifferentTag: Position piece with a tag different of the tag: " + tagName + " ?");
         Piece pieceAtPos = boardState[Mathf.FloorToInt(xPos)][Mathf.FloorToInt(yPos)];
@@ -494,24 +510,20 @@ public class BoardController : MonoBehaviour
         return attackingDirection;
     }
 
-    bool IsWhitePiece(Piece p)
+    public bool IsWhitePiece(Piece p)
     {
         return p.CompareTag("P1 Piece");
     }
 
     public int countBlackPieces(){
         int x = 0;
-        bool isBlack = false;
+        //bool isBlack = false;
         Piece p;
          for( int i = 0 ; i<10; i++){
             for( int j= 0; j<10; j++){
                 if(((i+j)%2) == 0){
                     p = boardState[i][j];
-                    if(p != null  ) isBlack = !IsWhitePiece(p);
-
-                    if(isBlack)
-                        x++;
-                        isBlack = false;
+                    if(p != null && !IsWhitePiece(p)) x++;
                 }
             }
         }
@@ -519,17 +531,13 @@ public class BoardController : MonoBehaviour
     }
     public int countWhitePieces(){
         int x = 0;
-        bool isWhite = false;
+        //bool isWhite = false;
         Piece p;
          for( int i = 0 ; i<10; i++){
             for( int j= 0; j<10; j++){
                 if(((i+j)%2) == 0){
                     p = boardState[i][j];
-                    if(p != null  ) isWhite = IsWhitePiece(p);
-
-                    if(isWhite)
-                        x++;
-                        isWhite = false;
+                    if (p != null && IsWhitePiece(p)) x++;
                 }
             }
         }
@@ -562,6 +570,11 @@ public class BoardController : MonoBehaviour
     public void setTestData(BoardPreparator p)
     {
         this.boardPreparator = p;
+    }
+
+    public void setBoardTestData(Piece[][] pieces)
+    {
+        this.boardState = pieces;
     }
 
 #endif
