@@ -12,7 +12,8 @@ namespace Tests
         [Test]
         public void TestIsDarkSquare()
         {
-            BoardPreparator preparator = new BoardPreparator();
+            GameObject o = new GameObject();
+            BoardPreparator preparator = o.AddComponent<BoardPreparator>();
             int i = 0;
             int j = 0;
             bool result = preparator.IsDarkSquare(0,0);

@@ -9,7 +9,6 @@ namespace Tests
 {
     public class TestBoardController
     {
-
         private GameObject prefabW = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Pieces/White.prefab");
         private GameObject prefabB = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Pieces/Black.prefab");
 
@@ -71,7 +70,5 @@ namespace Tests
             Assert.AreEqual(true, controller.IsWhitePiece(prefabwhite));
             Assert.AreEqual(false, controller.IsWhitePiece(prefabblack));
         }
-
-
     }
 }
